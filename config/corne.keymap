@@ -35,7 +35,7 @@
     };
 
     Gaming {
-      bindings = <&to 0>;
+      bindings = <&to 5>;
       key-positions = <36 41>;
     };
   };
@@ -207,6 +207,15 @@
         &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K     &kp L   &trans  &kp ESC
         &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &trans    &trans  &trans  &kp LEFT_WIN
                                  &trans  &trans  &trans    &trans  &trans  &kp LALT
+      >;
+    };
+
+    layer_6 {
+      bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans    &trans  &trans  &trans
       >;
     };
   };
