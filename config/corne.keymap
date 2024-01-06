@@ -156,7 +156,7 @@
         &mt LEFT_ALT ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp G        &kp J     &kp L  &kp U     &kp Y  &kp P    &kp BSPC
         &mt LCTRL TAB        &kp A  &kp R  &kp S  &kp T  &kp D        &kp H     &kp N  &kp E     &kp I  &kp O    &kp LCTRL
         &kp LSHFT            &kp Z  &kp X  &kp C  &kp V  &kp FSLH     &kp BSLH  &kp M  &kp K     &kp B  &kp DOT  &kp LSHFT
-                                           &to 4  &to 3  &kp SPACE    &kp RET   &to 2  &kp LGUI
+                                           &mo 4  &mo 3  &kp SPACE    &kp RET   &mo 2  &kp LGUI
       >;
     };
 
