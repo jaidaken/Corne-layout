@@ -187,21 +187,21 @@
       >;
     };
 
-    layer_4 {
+    Move {
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+        &none  &none  &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none    &none     &none     &none   &none     &none      &kp PG_UP
+        &none  &none  &kp C_MUTE  &kp C_VOL_DN          &kp C_VOLUME_UP       &none    &kp HOME  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &kp END
+        &none  &none  &kp K_MUTE  &kp K_VOLUME_DOWN     &kp K_VOLUME_UP       &none    &none     &none     &none   &none     &none      &kp PG_DN
+                                  &none                 &none                 &none    &none     &none     &none
       >;
     };
 
-    layer_5 {
+    gaming {
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+        &kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I     &kp O   &kp P   &kp BSPC
+        &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K     &kp L   &trans  &kp ESC
+        &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &trans    &trans  &trans  &kp LEFT_WIN
+                                 &trans  &trans  &trans    &trans  &trans  &kp LALT
       >;
     };
   };
