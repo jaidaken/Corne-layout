@@ -1,6 +1,7 @@
 
 ![Screenshot](keyboardlayout.png)
 
+![Screenshot](combos.png)
 
 [keymap-editor]:https://github.com/nickcoutsos/keymap-editor
 [keymap-layout-tools]:https://nickcoutsos.github.io/keymap-layout-tools/
