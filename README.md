@@ -1,9 +1,9 @@
 
 ![Screenshot](colemak.png)
-![Screenshot](layer 1.png)
-![Screenshot](layer 2.png)
-![Screenshot](layer 3.png)
-![Screenshot](layer 4.png)
+![Screenshot](layer1.png)
+![Screenshot](layer2.png)
+![Screenshot](layer3.png)
+![Screenshot](layer4.png)
 ![Screenshot](combos.png)
 
 [keymap-editor]:https://github.com/nickcoutsos/keymap-editor
