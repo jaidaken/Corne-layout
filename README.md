@@ -1,6 +1,9 @@
 
-![Screenshot](keyboardlayout.png)
-
+![Screenshot](colemak.png)
+![Screenshot](layer 1.png)
+![Screenshot](layer 2.png)
+![Screenshot](layer 3.png)
+![Screenshot](layer 4.png)
 ![Screenshot](combos.png)
 
 [keymap-editor]:https://github.com/nickcoutsos/keymap-editor
