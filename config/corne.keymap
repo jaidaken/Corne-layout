@@ -6,9 +6,7 @@
 // dt-formatter: multilineIntegerCellsIndent = "reindent"
 // dt-formatter: multilineListCommaStyle = "leading"
 
-&sk {
-  /delete-property/ ignore-modifiers;
-};
+&sk { /delete-property/ ignore-modifiers; };
 
 / {
   combos {
@@ -19,71 +17,16 @@
       bindings = <&caps_word>;
     };
 
-    delete {
-      key-positions = <11 23>;
-      bindings = <&kp DEL>;
-    };
-
-    colemak {
-      bindings = <&to 0>;
-      key-positions = <36 37>;
-    };
-
-    Gaming {
-      bindings = <&to 4>;
+    colemak-to-gaming {
+      bindings = <&to 5>;
       key-positions = <36 41>;
-    };
-  };
-
-  macros {
-    greeting: greeting {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      label = "greeting";
-      bindings = <&kp H &kp E &kp L &kp L &kp O>;
+      layers = <0>;
     };
 
-    rgblayer: rgb_layer {
-      compatible = "zmk,behavior-macro-two-param";
-      #binding-cells = <2>;
-      label = "MOMENTARY_LAYER_WITH_RGB_COLOR";
-      bindings
-        = <&macro_param_2to2 &rgb_ug RGB_COLOR_HSB_CMD MACRO_PLACEHOLDER &macro_param_1to1>
-        , <&macro_press>
-        , <&mo MACRO_PLACEHOLDER>
-        , <&macro_pause_for_release>
-        , <&macro_release>
-        , <&macro_param_1to1 &mo MACRO_PLACEHOLDER>
-        , <&macro_tap>
-        , <&rgb_ug RGB_TOG>
-        ;
-    };
-
-    shift: with_lshift {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      label = "KEY_PRESS_WITH_LEFT_SHIFT_MODIFIER";
-      bindings
-        = <&macro_press>
-        , <&kp LSHFT>
-        , <&macro_tap>
-        , <&macro_param_1to1 &kp MACRO_PLACEHOLDER>
-        , <&macro_release>
-        , <&kp LSHFT>
-        ;
-    };
-
-    as: autoshift {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      label = "AUTOSHIFT_KEYPRESS";
-      bindings
-        = <&macro_press>
-        , <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
-        , <&macro_pause_for_release>
-        , <&macro_release>
-        , <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
-        ;
+    gaming-to-colemak {
+      bindings = <&to 0>;
+      key-positions = <36 41>;
+      layers = <5>;
     };
   };
 
@@ -139,60 +82,71 @@
     };
   };
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
-
-    tri_layer {
-      if-layers = <1 1>;
-      then-layer = <1>;
-    };
-  };
+  conditional_layers { compatible = "zmk,conditional-layers"; };
 
   keymap {
     compatible = "zmk,keymap";
 
     Colemak-DH {
       bindings = <
-        &kp ESCAPE     &kp Q  &kp W  &kp F  &kp P  &kp G        &kp J       &kp L  &kp U     &kp Y  &kp DELETE  &kp BSPC
-        &mt LCTRL TAB  &kp A  &kp R  &kp S  &kp T  &kp D        &kp H       &kp N  &kp E     &kp I  &kp O       &kp LEFT_ALT
-        &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp COMMA    &kp PERIOD  &kp M  &kp K     &kp B  &kp SLASH   &kp RIGHT_SHIFT
-                                     &mo 3  &mo 2  &kp SPACE    &kp RET     &mo 1  &kp LGUI
+        &kp ESCAPE  &kp Q  &kp W  &kp F      &kp P  &kp B        &kp J      &kp L  &kp U     &kp Y  &kp DELETE  &kp BSPC
+        &kp LSHFT   &kp A  &kp R  &kp S      &kp T  &kp G        &kp M      &kp N  &kp E     &kp I  &kp O       &lt 4 LEFT_ALT
+        &kp LCTRL   &kp Z  &kp X  &kp C      &kp V  &kp COMMA    &kp SLASH  &kp K  &kp H     &kp D  &kp PERIOD  &mo 3
+                                  &lt 6 TAB  &mo 2  &kp SPACE    &kp RET    &mo 1  &kp LGUI
       >;
     };
 
-    raise {
+    Nav {
       bindings = <
-        &trans  &none  &kp N7  &kp N8  &kp N9  &none     &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
-        &trans  &none  &kp N4  &kp N5  &kp N6  &none     &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
-        &trans  &none  &kp N1  &kp N2  &kp N3  &none     &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18
-                               &none   &kp N0  &trans    &trans   &none    &none
+        &trans  &none  &none  &none   &none   &none     &kp K_REDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &trans
+        &none   &none  &none  &none   &none   &none     &kp CAPS    &kp LEFT   &kp DOWN    &kp UP       &kp RIGHT   &trans
+        &none   &none  &none  &none   &none   &none     &kp INSERT  &kp HOME   &kp PG_DN   &kp PG_UP    &kp END     &none
+                              &trans  &trans  &trans    &trans      &trans     &trans
       >;
     };
 
-    coding {
+    Numbers {
       bindings = <
-        &kp TILDE      &kp PIPE          &kp AMPS    &kp STAR     &kp HASH         &kp SEMI        &kp TILDE  &kp PIPE        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &trans
-        &kp PLUS       &kp MINUS         &kp DOLLAR  &kp PERCENT  &kp CARET        &kp COLON       &kp PLUS   &kp MINUS       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp GRAVE          &kp SQT
-        &kp LESS_THAN  &kp GREATER_THAN  &kp POUND   &kp AT       &kp EXCLAMATION  &kp QUESTION    &kp EQUAL  &kp UNDERSCORE  &kp LBKT              &kp RBKT               &kp SLASH          &kp BACKSLASH
-                                                     &none        &none            &trans          &trans     &none           &none
+        &trans  &none  &none  &none   &none   &none     &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp MINUS  &trans
+        &none   &none  &none  &none   &none   &none     &kp BSLH   &kp N4  &kp N5  &kp N6  &kp PLUS   &none
+        &none   &none  &none  &none   &none   &none     &kp STAR   &kp N1  &kp N2  &kp N3  &kp DOT    &none
+                              &trans  &trans  &trans    &trans     &kp N0  &trans
       >;
     };
 
-    Move {
+    Symbols {
       bindings = <
-        &none  &none  &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none    &none     &none     &none   &none     &none      &kp PG_UP
-        &none  &none  &kp C_MUTE  &kp C_VOL_DN          &kp C_VOLUME_UP       &none    &kp HOME  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &kp END
-        &none  &none  &kp K_MUTE  &kp K_VOLUME_DOWN     &kp K_VOLUME_UP       &none    &none     &none     &none   &none     &none      &kp PG_DN
-                                  &none                 &none                 &none    &none     &none     &none
+        &trans  &kp GRAVE      &kp LESS_THAN      &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE          &kp EXCLAMATION  &kp AT_SIGN  &kp POUND      &kp NUHS      &kp DOLLAR      &trans
+        &none   &kp PIPE       &kp COLON          &kp SEMICOLON     &kp LEFT_BRACKET      &kp RBKT                 &kp PERCENT      &kp CARET    &kp AMPERSAND  &kp ASTERISK  &kp UNDERSCORE  &none
+        &none   &kp BACKSLASH  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp MINUS        &kp PLUS     &kp EQUAL      &kp TILDE     &trans          &none
+                                                  &trans            &trans                &trans                   &trans           &trans       &trans
+      >;
+    };
+
+    Function {
+      bindings = <
+        &trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp PRINTSCREEN    &none   &none   &none   &none  &none  &trans
+        &none   &kp F11  &kp F4  &kp F5  &kp F6  &kp SCROLLLOCK     &none   &none   &none   &none  &none  &none
+        &none   &kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK    &none   &none   &none   &none  &none  &none
+                                 &trans  &trans  &trans             &trans  &trans  &trans
       >;
     };
 
     gaming {
       bindings = <
-        &kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I     &kp O   &kp P   &kp BSPC
-        &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K     &kp L   &trans  &kp ESC
-        &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &trans    &trans  &trans  &kp LEFT_WIN
-                                 &trans  &trans  &trans    &trans  &trans  &kp LALT
+        &kp ESC    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I   &kp O     &kp P     &kp BSPC
+        &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K   &kp L     &kp UP    &kp LEFT_ALT
+        &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp F5  &kp LEFT  &kp DOWN  &kp RIGHT
+                                 &trans  &trans  &trans    &trans  &trans  &trans
+      >;
+    };
+
+    media {
+      bindings = <
+        &none  &none  &none  &none  &none  &none    &kp C_REWIND    &none             &kp K_MUTE    &none            &kp C_FAST_FORWARD  &none
+        &none  &none  &none  &none  &none  &none    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_NEXT          &none
+        &none  &none  &none  &none  &none  &none    &none           &none             &none         &none            &none               &none
+                             &none  &none  &none    &none           &none             &none
       >;
     };
   };
