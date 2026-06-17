@@ -13,6 +13,11 @@
             key-positions = <0 12>;
             bindings = <&caps_word>;
         };
+
+        studio_unlock {
+            key-positions = <24 35>;
+            bindings = <&studio_unlock>;
+        };
     };
 
     behaviors {
