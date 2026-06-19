@@ -5,10 +5,10 @@
 
 #define BASE   0
 #define RAISE  1
-#define MOVE   2
-#define CODING 3
-#define QWERTY 4
-#define GAMING 5
+#define CODING 2
+#define MOVE   3
+#define GAMING 4
+#define QWERTY 5
 
 / {
     combos {
@@ -54,9 +54,9 @@
         colemak {
             display-name = "Colemak";
             bindings = <
-        &kp ESC        &kp Q  &kp W  &kp F  &kp P  &kp G            &kp J  &kp L  &kp U     &kp Y    &kp DEL    &kp BSPC
-        &mt LCTRL TAB  &kp A  &kp R  &kp S  &kp T  &kp D            &kp H  &kp N  &kp E     &kp I    &kp O      &kp LALT
-        &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp COMMA        &kp DOT &kp M &kp K     &kp B    &kp SLASH  &kp RSHFT
+        &kp ESC        &kp Q  &kp W  &kp F  &kp P  &kp G            &kp J    &kp L  &kp U  &kp Y  &kp DEL    &kp BSPC
+        &mt LCTRL TAB  &kp A  &kp R  &kp S  &kp T  &kp D            &kp H    &kp N  &kp E  &kp I  &kp O      &kp LALT
+        &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp COMMA        &kp DOT  &kp M  &kp K  &kp B  &kp SLASH  &kp RSHFT
                                      &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
             >;
         };
@@ -64,30 +64,40 @@
         raise {
             display-name = "Raise";
             bindings = <
-        &trans  &none  &kp N7  &kp N8  &kp N9  &none        &kp F1      &kp F2    &kp F3     &kp F4      &kp F5     &kp F6
-        &trans  &none  &kp N4  &kp N5  &kp N6  &none        &kp F7      &kp F8    &kp F9     &kp F10     &kp F11    &kp F12
-        &trans  &none  &kp N1  &kp N2  &kp N3  &none        &kp C_MUTE  &kp C_RW  &kp C_PLAY &kp C_PAUSE &kp C_STOP &kp C_FF
-                               &none   &kp N0  &trans       &trans      &none     &trans
-            >;
-        };
-
-        move {
-            display-name = "Move";
-            bindings = <
-        &trans  &none       &none         &none         &none         &none          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &none  &trans
-        &trans  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP   &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &none  &trans
-        &trans  &none       &none         &none         &none         &none          &none     &none      &none      &none      &none  &trans
-                                           &trans        &trans        &trans         &trans    &trans     &trans
+        &trans  &none  &kp N7  &kp N8  &kp N9  &none        &kp F1      &kp F2    &kp F3      &kp F4       &kp F5      &kp F6
+        &trans  &none  &kp N4  &kp N5  &kp N6  &none        &kp F7      &kp F8    &kp F9      &kp F10      &kp F11     &kp F12
+        &trans  &none  &kp N1  &kp N2  &kp N3  &none        &kp C_MUTE  &kp C_RW  &kp C_PLAY  &kp C_PAUSE  &kp C_STOP  &kp C_FF
+                               &none   &kp N0  &trans       &trans      &none     &none
             >;
         };
 
         coding {
             display-name = "Coding";
             bindings = <
-        &trans  &kp EXCL   &kp LS(SQT)  &kp NUHS   &kp DLLR   &kp PRCNT        &kp LT     &kp GT     &kp QMARK  &kp COLON  &kp SEMI   &trans
-        &trans  &kp EQUAL  &kp PLUS     &kp MINUS  &kp ASTRK  &kp SLASH        &kp LPAR   &kp RPAR   &kp LBRC   &kp RBRC   &kp LBKT   &kp RBKT
-        &trans  &kp CARET  &kp AMPS     &kp PIPE2  &kp TILDE2 &kp NUBS         &kp UNDER  &kp SQT    &kp LS(N2) &kp GRAVE  &none      &trans
-                                        &trans     &trans     &trans           &trans     &trans     &trans
+        &kp TILDE2  &kp PIPE2  &kp AMPS   &kp ASTRK  &kp NUHS     &kp SEMI         &kp TILDE2  &kp PIPE2   &kp LPAR   &kp RPAR   &kp LS(N2)  &trans
+        &kp PLUS    &kp MINUS  &kp DLLR   &kp PRCNT  &kp CARET    &kp COLON        &kp PLUS    &kp MINUS   &kp LBRC   &kp RBRC   &kp GRAVE   &kp SQT
+        &kp LT      &kp GT     &kp NUHS   &kp LS(SQT) &kp EXCL    &kp QMARK        &kp EQUAL   &kp UNDER   &kp LBKT   &kp RBKT   &kp SLASH   &kp NUBS
+                                          &none      &none        &trans          &trans      &none       &none
+            >;
+        };
+
+        move {
+            display-name = "Move";
+            bindings = <
+        &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none         &none        &none     &none     &none    &none      &none  &kp PG_UP
+        &none  &none  &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &none        &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp END
+        &none  &none  &none         &none         &none         &none        &none     &none     &none    &none      &none  &kp PG_DN
+                                     &none         &none         &none        &none     &none     &none
+            >;
+        };
+
+        gaming {
+            display-name = "Gaming";
+            bindings = <
+        &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T            &kp Y  &kp U  &kp I      &kp O    &kp P    &kp BSPC
+        &kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K      &kp L    &trans   &kp ESC
+        &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &trans     &trans   &trans   &kp LGUI
+                                 &trans  &trans  &trans         &trans  &trans  &kp LALT
             >;
         };
 
@@ -98,16 +108,6 @@
         &mt LCTRL TAB  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K      &kp L    &kp SEMI   &kp LALT
         &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RSHFT
                                      &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
-            >;
-        };
-
-        gaming {
-            display-name = "Gaming";
-            bindings = <
-        &kp ESC    &kp Q  &kp W  &kp E  &kp R  &kp T            &kp Y  &kp U  &kp I      &kp O    &kp P      &kp BSPC
-        &kp LCTRL  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K      &kp L    &kp SEMI   &kp LALT
-        &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RSHFT
-                                 &kp TAB  &kp LGUI  &kp SPACE   &kp RET  &mo MOVE  &mo RAISE
             >;
         };
     };
