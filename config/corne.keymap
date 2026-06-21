@@ -6,9 +6,9 @@
 #define BASE   0
 #define RAISE  1
 #define CODING 2
-#define MOVE   3
-#define GAMING 4
-#define QWERTY 5
+#define GAMING 3
+#define QWERTY 4
+#define MOVE   5
 
 / {
     combos {
@@ -20,31 +20,13 @@
         };
 
         studio_unlock {
-            key-positions = <24 35>;
+            key-positions = <36 41>;
             bindings = <&studio_unlock>;
         };
 
         del_combo {
             key-positions = <11 23>;
             bindings = <&kp DEL>;
-        };
-
-        to_colemak {
-            key-positions = <36 37>;
-            bindings = <&to BASE>;
-            timeout-ms = <40>;
-        };
-
-        to_gaming {
-            key-positions = <38 39>;
-            bindings = <&to GAMING>;
-            timeout-ms = <40>;
-        };
-
-        to_qwerty {
-            key-positions = <40 41>;
-            bindings = <&to QWERTY>;
-            timeout-ms = <40>;
         };
     };
 
@@ -54,10 +36,10 @@
         colemak {
             display-name = "Colemak";
             bindings = <
-        &kp ESC        &kp Q  &kp W  &kp F  &kp P  &kp G            &kp J    &kp L  &kp U  &kp Y  &kp DEL    &kp BSPC
-        &mt LCTRL TAB  &kp A  &kp R  &kp S  &kp T  &kp D            &kp H    &kp N  &kp E  &kp I  &kp O      &kp LALT
-        &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp COMMA        &kp DOT  &kp M  &kp K  &kp B  &kp SLASH  &kp RSHFT
-                                     &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
+        &kp ESC    &kp Q  &kp W  &kp F  &kp P  &kp G            &kp J    &kp L  &kp U  &kp Y  &kp DEL    &kp BSPC
+        &kp LSHFT  &kp A  &kp R  &kp S  &kp T  &kp D            &kp H    &kp N  &kp E  &kp I  &kp O      &kp LALT
+        &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp COMMA        &kp DOT  &kp M  &kp K  &kp B  &kp SLASH  &kp TAB
+                                 &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
             >;
         };
 
@@ -81,16 +63,6 @@
             >;
         };
 
-        move {
-            display-name = "Move";
-            bindings = <
-        &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none         &none        &none     &none     &none    &none      &none  &kp PG_UP
-        &none  &none  &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &none        &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp END
-        &none  &none  &none         &none         &none         &none        &none     &none     &none    &none      &none  &kp PG_DN
-                                     &none         &none         &none        &none     &none     &none
-            >;
-        };
-
         gaming {
             display-name = "Gaming";
             bindings = <
@@ -104,10 +76,20 @@
         qwerty {
             display-name = "QWERTY";
             bindings = <
-        &kp ESC        &kp Q  &kp W  &kp E  &kp R  &kp T            &kp Y  &kp U  &kp I      &kp O    &kp P      &kp BSPC
-        &mt LCTRL TAB  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K      &kp L    &kp SEMI   &kp LALT
-        &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RSHFT
-                                     &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
+        &kp ESC    &kp Q  &kp W  &kp E  &kp R  &kp T            &kp Y  &kp U  &kp I      &kp O    &kp P      &kp BSPC
+        &kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K      &kp L    &kp SEMI   &kp LALT
+        &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp TAB
+                                 &mo MOVE  &kp LGUI  &kp SPACE  &kp RET  &mo CODING  &mo RAISE
+            >;
+        };
+
+        move {
+            display-name = "Move";
+            bindings = <
+        &none  &to BASE    &kp C_BRI_DN  &kp C_BRI_UP  &none         &none        &none     &none     &none    &none      &none  &kp PG_UP
+        &none  &to QWERTY  &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &none        &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp END
+        &none  &to GAMING  &none         &none         &none         &none        &none     &none     &none    &none      &none  &kp PG_DN
+                                         &none         &none         &none        &none     &none     &none
             >;
         };
     };
